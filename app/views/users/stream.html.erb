@@ -2,4 +2,7 @@
 <h1>Your stream</h1>
 <div id="publisher"></div>
 Link to your stream: <%= link_to watch_url(@stream.user.id), watch_url(@stream.user.id) %>
+Link to all streams: <% @streams.each do |s| %>
+	<%= link_to watch_url(s.user.id), watch_url(s.user.id) %><br>
+	<%end%>
 <%= link_to 'Sign Out', destroy_user_session_path, :method=>'delete' %>
