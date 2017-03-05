@@ -2,6 +2,7 @@ class UsersController < ApplicationController
   before_action :authenticate_user!
 
   def stream
+     @streams = Stream.all
     @stream     = current_user.stream || current_user.create_stream
     gon.opentok = opentok_data(@stream)
   end
