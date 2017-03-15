@@ -1,12 +1,12 @@
 $ ->
-  if $('#publisher').length
+  if $('#hardware-setup').length
     # Initialize an OpenTok Session object
     session = TB.initSession(gon.opentok.sessionId);
 
     videoOptions = {width: 640, height: 480}
-  
+    
     # Initialize a Publisher, and place it into the element with id="publisher"
-    publisher = TB.initPublisher(gon.opentok.apiKey, 'publisher', videoOptions);
+    hardware-setup = TB.initPublisher(gon.opentok.apiKey, 'hardware-setup', videoOptions);
   
   
     # Attach event handlers
@@ -15,7 +15,7 @@ $ ->
       sessionConnected: (event) ->
         # Publish the publisher we initialzed earlier (this will trigger 'streamCreated' on other clients)
         if session.capabilities.publish == 1
-          session.publish(publisher)
+          session.publish(hardware-setup)
         else
           return
   
