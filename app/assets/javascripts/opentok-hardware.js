@@ -117,7 +117,7 @@ var createDevicePickerController = function(opts, changeHandler) {
       name: _devicePicker.pickedDevice.label,
       audioSource: null,
       videoSource: null,
-      width: 450,
+      width: 400,
       height: 300,
       fitMode: 'cover',
       style: {
