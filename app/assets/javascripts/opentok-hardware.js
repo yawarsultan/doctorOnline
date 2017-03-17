@@ -455,11 +455,11 @@ function createOpentokHardwareSetupComponent(targetElement, options, callback) {
           ])
         );
 
-        container.appendChild(createElement('div', { className: 'opentok-hardware-setup-mic' }, [
-          createElement('div', { className: 'opentok-hardware-setup-label' }, 'Mic:'),
-          createElement('div', { className: 'opentok-hardware-setup-selector' }, micSelector),
-          micPreview
-        ]));
+        // container.appendChild(createElement('div', { className: 'opentok-hardware-setup-mic' }, [
+        //   createElement('div', { className: 'opentok-hardware-setup-label' }, 'Mic:'),
+        //   createElement('div', { className: 'opentok-hardware-setup-selector' }, micSelector),
+        //   micPreview
+        // ]));
 
         camera.setDeviceList(devices.filter(function(device) {
           return device.kind === 'videoInput';
