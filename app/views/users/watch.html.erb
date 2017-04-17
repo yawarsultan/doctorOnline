@@ -3,23 +3,23 @@
 <div id="stream"></div>
 <h1>Your stream</h1>
 <!-- <div id="publisher"></div> -->
-<div id="hardware-setup"></div>
-<script type="text/javascript">
-    var element = document.querySelector('#hardware-setup');
-    var component = createOpentokHardwareSetupComponent(element, {
-      insertMode: 'append'
-    }, function(error) {
-      if (error) {
-        console.error('Error: ', error);
-        document.querySelector('#hardware-setup').innerHTML = '<strong>Error getting ' +
-          'devices</strong>: ' + error.message;
-        return;
-      }
-      // var button = document.createElement('button');
-      // button.onclick = component.destroy;
-      // button.appendChild(document.createTextNode('Destroy'));
-      // element.appendChild(button);
-    });
-  </script>
+<!-- <div id="hardware-setup"></div> -->
+<!--<script type="text/javascript"> -->
+<!-- //     var element = document.querySelector('#hardware-setup'); -->
+<!-- //     var component = createOpentokHardwareSetupComponent(element, { -->
+<!-- //       insertMode: 'append' -->
+<!-- //     }, function(error) { -->
+<!-- //       if (error) { -->
+<!-- //         console.error('Error: ', error); -->
+<!-- //         document.querySelector('#hardware-setup').innerHTML = '<strong>Error getting ' + -->
+<!-- //           'devices</strong>: ' + error.message; -->
+<!-- //         return; -->
+<!-- //       } -->
+      <!-- // var button = document.createElement('button'); -->
+      <!-- // button.onclick = component.destroy; -->
+      <!-- // button.appendChild(document.createTextNode('Destroy')); -->
+      <!-- // element.appendChild(button); -->
+    <!-- // }); -->
+  <!-- </script> -->
 
 <%= link_to 'Sign Out', destroy_user_session_path, :method=>'delete' %>
