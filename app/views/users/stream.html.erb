@@ -3,7 +3,7 @@
 <!-- <div id="publisher"></div> -->
 <!-- <div id="audioSource"></div>
 <div id="videoSource"></div> -->
-<div id="hardware-setup"></div>
+<!-- <div id="hardware-setup"></div> 
  <script type="text/javascript">
     var element = document.querySelector('#hardware-setup');
     var component = createOpentokHardwareSetupComponent(element, {
@@ -20,8 +20,9 @@
       // button.appendChild(document.createTextNode('Destroy'));
       // element.appendChild(button);
     });
-  </script>
-  
+  </script>-->
+  <div id="otEmbedContainer" style="width:800px; height:640px"></div>
+                  <script src="https://tokbox.com/embed/embed/ot-embed.js?embedId=3dd1977a-f537-459c-9b2e-6696e44d99bf"></script>
 Link to your stream: <%= link_to watch_url(@stream.user.id), watch_url(@stream.user.id) %>
 
 <%= link_to 'Sign Out', destroy_user_session_path, :method=>'delete' %>
