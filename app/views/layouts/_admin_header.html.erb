@@ -1,0 +1,41 @@
+<div class="header">
+        <div id='cssmenu' >
+            <ul>
+               <li class=""><a href='/'><span>Online Doctor</span></a></li>
+               <li><a href='/faq'><span>Faq</span></a></li>
+               <li><a href='/about'><span>About</span></a></li>
+               
+               <li class='last'><a href='/contact'><span>Contact</span></a></li>
+               <% if current_user.super_admin? %>
+                 
+                <li class=' has-sub'><a href='#'>Super <span><%= current_user.firstname %></span></a>
+                  <ul>
+                     <li><a href='/admin/users'><span>Users</span></a></li>
+                     <li><a href='/stream'><span>video</span></a></li>
+                     <li><a href='/userpanel/prescription'><span>Prescription</span></a></li>
+                     <li><%= link_to  destroy_user_session_path, :method => 'delete' do%> Signout<% end %></li>
+                  </ul>
+               </li>
+               <% elsif current_user.doctor? %>
+                    <li class=' has-sub'><a href='#'>Doctor <span><%= current_user.firstname %></span></a>
+                  <ul>
+                     <li><a href='/admin/users'><span>Users</span></a></li>
+                     <li><a href='/stream'><span>video</span></a></li>
+                     <li><a href='/userpanel/prescription'><span>Prescription</span></a></li>
+                     <li><%= link_to  destroy_user_session_path, :method => 'delete' do%> Signout<% end %></li>
+                  </ul>
+               </li>
+                <%end%>
+
+    <%= yield(:search) %>
+            
+
+            </ul>
+
+
+
+         </div>
+
+
+    </div>
+          

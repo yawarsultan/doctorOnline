@@ -13,4 +13,12 @@
 //= require jquery
 //= require jquery_ujs
 //= require turbolinks
+//= require bootstrap-sprockets
+//= require jquery1111.min
+//= require css3-mediaqueries
+//= require html5
+//= require lightbox-plus-jquery.min
+//= require script
+//= require video
+//= require video2
 //= require_tree .

@@ -15,6 +15,11 @@ gem 'figaro' # we'll use it to store our API keys
 gem 'gon' # this one to expose our API keys to JS
 gem 'opentok' # SDK to use TokBox library
 gem 'devise' # I bet you know whats is it :)
+gem "friendly_id"
+gem 'bootstrap-sass', '~> 3.2.0'
+gem 'autoprefixer-rails'
+gem 'ransack'
+gem 'cancancan'
 
 group :development do
   gem 'web-console'

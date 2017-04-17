@@ -1,0 +1,34 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Medicines</h1>
+
+<table style="border:solid; cell-spacing: 10px">
+  <thead>
+    <tr>
+      <th colspan="3">First Name</th>
+      <th colspan="3">Last Name</th>
+      <th colspan="3">Gender</th>
+    </tr>
+  </thead>
+
+  <tbody>
+
+    <% @users.each do |user| %>
+
+        <tr><td colspan="3">
+        <%=user.firstname%>
+        </td>
+        <td colspan="3">
+        <%=user.lastname%>
+        </td>
+        <td colspan="3">
+        <%=user.gender%>
+        </td>
+        
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+

@@ -1,0 +1,12 @@
+<p id="notice"><%= notice %></p>
+
+<%=@medicine.name%>
+
+
+
+<%=@medicine.weight%>
+
+
+<%=@medicine.price%>
+<%= link_to 'Edit', edit_medicine_path(@medicine) %> |
+<%= link_to 'Back', medicines_path %>

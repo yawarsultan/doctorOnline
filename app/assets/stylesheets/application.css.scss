@@ -1,0 +1,17 @@
+/*
+ *= require_self
+ *= require_bootstrap.min
+ *= require_style
+ *= require_owl.carousel
+ *= require_owl.theme
+ *= require menu
+ *= require zerogrid
+ *= require lightbox
+ *= require font-awesome
+ *= require font-awesome.min
+ *= require opentok-hardware.css
+ */
+
+ @import "bootstrap-sprockets";
+ @import "bootstrap";
+

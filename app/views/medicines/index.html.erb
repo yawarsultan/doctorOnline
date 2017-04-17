@@ -1,0 +1,36 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Medicines</h1>
+
+<%= render 'medicines/medicine_search' %>
+<table style="border:solid; cell-spacing: 10px">
+  <thead>
+    <tr>
+      <th colspan="3">Name</th>
+      <th colspan="3">Weight</th>
+      <th colspan="3">Price</th>
+    </tr>
+  </thead>
+
+  <tbody>
+
+    <% @medicines.each do |medicine| %>
+
+        <tr><td colspan="3">
+        <%=medicine.name%>
+        </td>
+        <td colspan="3">
+        <%=medicine.weight%>
+        </td>
+        <td colspan="3">
+        <%=medicine.price%>
+        </td>
+        
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Medicine', new_medicine_path %>

@@ -1,0 +1,14 @@
+<h2>You can ask questions here</h2>
+<%= button_to "Ask a question", ask_new_question_path %>
+<br>
+
+<% @posts.each do |post| %>
+      
+      <%= label_tag :question, "Question:" %>
+       <%= post.question %><br>
+       <%= label_tag :body, "Body:" %>
+        <%= post.body %>
+    	<%= link_to "Read Question", post %> 
+       <br>
+        <hr>
+<% end %>

@@ -1,0 +1,36 @@
+<div class="header">
+        <div id='cssmenu' >
+            <ul>
+               <li class=""><a href='/'><span>Online Doctor</span></a></li>
+               <li><a href='/faq'><span>Faq</span></a></li>
+               <li><a href='/about'><span>About</span></a></li>
+               
+               <li class='last'><a href='/contact'><span>Contact</span></a></li>
+               <% if current_user.present? %>
+                 
+                <li class=' has-sub'><a href='#'><span><%= current_user.firstname %></span></a>
+                  <ul>
+                     <li><a href='/admin/users'><span>Users</span></a></li>
+                     <li><a href='/stream'><span>video</span></a></li>
+                     <li><a href='/userpanel/prescription'><span>Prescription</span></a></li>
+                     <li><a href='/my_posts'><span>My Posts</span></a></li>
+                     <li><%= link_to  destroy_user_session_path, :method => 'delete' do%> Signout<% end %></li>
+                  </ul>
+               </li>
+               <% else %>
+               <li><%= link_to new_user_session_path do %><span>Sign In</span><%end%></li>
+               <li><%= link_to new_user_registration_path do %><span>Sign Up</span><%end%></li>
+                <%end%>
+
+    <%= yield(:search) %>
+            
+
+            </ul>
+
+
+
+         </div>
+
+
+    </div>
+          

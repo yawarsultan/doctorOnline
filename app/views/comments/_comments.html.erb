@@ -1,0 +1,16 @@
+<% commentable.comments.each do |comment| %>
+	<div class="well">
+		<%= comment.body %>
+		<div style="float:right">
+	  <% if current_user.present? %>
+	    <% if comment.author == current_user.firstname || current_user.super_admin? %> 
+	      <%= link_to comment, :method => :delete, :data => {confirm: "Are You Sure?"} do %>
+	       &#10006;
+	      <%end%>
+	    <% end -%>
+	  <% end -%>
+  	</div>
+	</div>
+	
+
+<%end%>

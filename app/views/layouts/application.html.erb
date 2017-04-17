@@ -1,16 +1,26 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Broadcaster</title>
+    <title>Ods</title>
+    <meta content='width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no' name='viewport'>
     <%= csrf_meta_tags %>
-    <!-- // <script src="https://static.opentok.com/hardware-setup/v1/js/opentok-hardware-setup.min.js"></script> -->
+    <!-- // <script src="https://simplewebrtc.com/latest-v2.js"></script> -->
+
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
-
     <%= Gon::Base.render_data %>
   </head>
 
   <body>
+    <% if check_super_users? %>
+      <%= render 'layouts/admin_header' %>
+    <%else%>
+      <%= render 'layouts/header' %>
+    <%end%>
+    <%= render 'layouts/flash' %>
+    
+
     <%= yield %>
+    <%#= render 'layouts/footer' %>
   </body>
 </html>
