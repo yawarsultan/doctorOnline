@@ -11,16 +11,20 @@
                 <li class=' has-sub'><a href='#'>Super <span><%= current_user.firstname %></span></a>
                   <ul>
                      <li><a href='/admin/users'><span>Users</span></a></li>
+                      <li><a href="/patient_history">Patient History</a></li>
+                     
                      <li><a href='/stream'><span>video</span></a></li>
-                     <li><a href='/userpanel/prescription'><span>Prescription</span></a></li>
+                     <li><a href='/prescription'><span>Prescription</span></a></li>
                      <li><%= link_to  destroy_user_session_path, :method => 'delete' do%> Signout<% end %></li>
                   </ul>
                </li>
                <% elsif current_user.doctor? %>
                     <li class=' has-sub'><a href='#'>Doctor <span><%= current_user.firstname %></span></a>
                   <ul>
+                      <li><a href="/account"><span>My Account</span></a></li>
+                      <li><a href="/patient_history">Patient History</a></li>
                      <li><a href='/stream'><span>video</span></a></li>
-                     <li><a href='/userpanel/prescription'><span>Prescription</span></a></li>
+                     <li><a href='/prescription'><span>Prescription</span></a></li>
                      <li><%= link_to  destroy_user_session_path, :method => 'delete' do%> Signout<% end %></li>
                   </ul>
                </li>

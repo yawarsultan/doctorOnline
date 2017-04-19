@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170417184022) do
+ActiveRecord::Schema.define(version: 20170419113710) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -26,12 +26,64 @@ ActiveRecord::Schema.define(version: 20170417184022) do
     t.string   "author"
   end
 
+  create_table "doctors", force: :cascade do |t|
+    t.string   "email",                  default: "", null: false
+    t.string   "encrypted_password",     default: "", null: false
+    t.string   "firstname"
+    t.string   "lastname"
+    t.string   "gender"
+    t.string   "city"
+    t.string   "phone"
+    t.string   "country"
+    t.string   "speciality"
+    t.string   "exper_year"
+    t.string   "reset_password_token"
+    t.datetime "reset_password_sent_at"
+    t.datetime "remember_created_at"
+    t.integer  "sign_in_count",          default: 0,  null: false
+    t.datetime "current_sign_in_at"
+    t.datetime "last_sign_in_at"
+    t.inet     "current_sign_in_ip"
+    t.inet     "last_sign_in_ip"
+    t.datetime "created_at",                          null: false
+    t.datetime "updated_at",                          null: false
+    t.index ["email"], name: "index_doctors_on_email", unique: true, using: :btree
+    t.index ["reset_password_token"], name: "index_doctors_on_reset_password_token", unique: true, using: :btree
+  end
+
+  create_table "histories", force: :cascade do |t|
+    t.string   "firstname"
+    t.string   "lastname"
+    t.string   "age"
+    t.datetime "date"
+    t.string   "reason"
+    t.integer  "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "medicines", force: :cascade do |t|
     t.string   "name"
     t.string   "weight"
     t.string   "price"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "patient_histories", force: :cascade do |t|
+    t.string   "firstname"
+    t.string   "lastname"
+    t.datetime "date"
+    t.string   "reason"
+    t.string   "disease"
+    t.string   "symptoms"
+    t.string   "medication_allergy"
+    t.string   "current_medication"
+    t.string   "smoking"
+    t.string   "age"
+    t.integer  "user_id"
+    t.datetime "created_at",         null: false
+    t.datetime "updated_at",         null: false
   end
 
   create_table "posts", force: :cascade do |t|
@@ -45,6 +97,19 @@ ActiveRecord::Schema.define(version: 20170417184022) do
     t.index ["slug"], name: "index_posts_on_slug", unique: true, using: :btree
   end
 
+  create_table "presriptions", force: :cascade do |t|
+    t.string   "disease"
+    t.string   "drug_name"
+    t.string   "quantity"
+    t.integer  "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string   "age"
+    t.string   "name"
+    t.string   "user_email"
+    t.datetime "date"
+  end
+
   create_table "streams", force: :cascade do |t|
     t.integer  "user_id"
     t.text     "desc"
@@ -52,7 +117,21 @@ ActiveRecord::Schema.define(version: 20170417184022) do
     t.string   "opentok_session_id"
     t.datetime "created_at",         null: false
     t.datetime "updated_at",         null: false
+    t.integer  "doctor_id"
     t.index ["user_id"], name: "index_streams_on_user_id", using: :btree
+  end
+
+  create_table "super_admins", force: :cascade do |t|
+    t.string   "firstname"
+    t.string   "lastname"
+    t.string   "phone"
+    t.string   "gender"
+    t.string   "country"
+    t.string   "city"
+    t.string   "email",              default: "", null: false
+    t.string   "encrypted_password", default: "", null: false
+    t.datetime "created_at",                      null: false
+    t.datetime "updated_at",                      null: false
   end
 
   create_table "users", force: :cascade do |t|
@@ -75,6 +154,7 @@ ActiveRecord::Schema.define(version: 20170417184022) do
     t.datetime "created_at",                                 null: false
     t.datetime "updated_at",                                 null: false
     t.string   "role",                   default: "patient"
+    t.float    "total_online_time"
     t.index ["email"], name: "index_users_on_email", unique: true, using: :btree
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
   end

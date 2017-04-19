@@ -11,7 +11,7 @@
                 <li class=' has-sub'><a href='#'><span><%= current_user.firstname %></span></a>
                   <ul>
                      <li><a href='/stream'><span>video</span></a></li>
-                     <li><a href='/userpanel/prescription'><span>Prescription</span></a></li>
+                     <li><a href='/prescription'><span>Prescription</span></a></li>
                      <li><a href='/my_posts'><span>My Posts</span></a></li>
                      <li><%= link_to  destroy_user_session_path, :method => 'delete' do%> Signout<% end %></li>
                   </ul>

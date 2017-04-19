@@ -20,7 +20,9 @@ gem 'bootstrap-sass', '~> 3.2.0'
 gem 'autoprefixer-rails'
 gem 'ransack'
 gem 'cancancan'
-
+gem 'prawn_rails' #for pdf downloading of file
+# to edit comment in the same page
+gem 'best_in_place', '~> 3.0.1'
 group :development do
   gem 'web-console'
   gem 'listen', '~> 3.0.5'

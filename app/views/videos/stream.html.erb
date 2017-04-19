@@ -21,8 +21,15 @@
       // element.appendChild(button);
     });
   </script>-->
-  <div id="otEmbedContainer" style="width:800px; height:640px"></div>
+  <div id="otEmbedContainer" style="width:800px; height:640px; float:left"></div>
                   <script src="https://tokbox.com/embed/embed/ot-embed.js?embedId=3dd1977a-f537-459c-9b2e-6696e44d99bf"></script>
-Link to your stream: <%= link_to watch_url(@stream.user.id), watch_url(@stream.user.id) %>
+<!-- Link to your stream: <%#= link_to watch_url(@stream.user.id), watch_url(@stream.user.id) %> -->
 
-<%= link_to 'Sign Out', destroy_user_session_path, :method=>'delete' %>
+<%#= link_to 'Sign Out', destroy_user_session_path, :method=>'delete' %>
+<% if current_user.doctor? %>
+<%= render template: "presriptions/new"%><br>
+<%#= render template: "histories/new" %>
+<% end%>
+<%# if current_user.patient? %>
+<%#= render template: "videos/show_presription" %>
+<%#end%>

@@ -1,0 +1,61 @@
+.container.admin_users
+  / breadcrumb
+  %ul.breadcrumb
+    %li
+      %a Users
+    %li
+      %a Edit
+    %li.active
+      = "#{@user.full_name}"
+  / Title
+  = form_for @user , as: :user, url: update_user_user_path(@user) do |f|
+    %h2.heading3.mt40
+      User Details
+    .mt40.row
+      .col-lg-2.col-md-2.col-sm-12.col-xs-12
+      .col-lg-4.col-md-4.col-sm-12.col-xs-12
+        .loginbox
+          %form.form-vertical
+            %fieldset
+              .control-group
+                = f.label :first_name
+                .controls
+                  = f.text_field :first_name, :autofocus => true, class: 'form-control'
+              .control-group
+                = f.label :email
+                .controls
+                  = f.email_field :email, class: 'form-control'
+              .control-group
+                = f.label :password, "New Password"
+                .controls
+                  = f.password_field :password, :autocomplete => 'off', class: 'form-control'
+              .control-group
+                = f.label :active_flag, "User State"
+                .controls
+                  = f.check_box :active_flag, {class: "user-active-btn", data: {toggle: "toggle", on: "Active", off: "In-Active", onstyle: "success", offstyle: "danger"}},true, false
+                  =# f.check_box :active_flag, {class: "user-active-btn", data: {on: "Active", off: "In-Active", onstyle: "success", offstyle: "danger"}},true, false
+
+
+      .col-lg-4.col-md-4.col-sm-12.col-xs-12
+        .loginbox
+          %fieldset
+            .control-group
+              = f.label :last_name
+              .controls
+                = f.text_field :last_name, :autofocus => true, class: 'form-control'
+            .control-group
+              = f.label :country, class: "control-label"
+              .controls
+                = f.select(:country_id, Country.all.map{ |c| [c.full_name, c.id] }, {}, { :class => 'form-control', :autofocus => true, include_blank: 'Select a country' })
+            .control-group
+              = f.label :password_confirmation
+              .controls
+                = f.password_field :password_confirmation, class: 'form-control'
+            - if is_super?
+              .control-group
+                = f.label :role
+                .controls
+                  = f.select(:role, User::ROLES.map{ |r| [r.humanize, r] }, {}, { :class => 'form-control', :autofocus => true, include_blank: 'Select a Role' })
+            .control-group
+              .controls
+                %button.btn.btn-orange.col-md-12 Update User

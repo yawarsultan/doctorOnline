@@ -1,0 +1,45 @@
+<div class="container">
+<h1>Patient History</h1>
+<%# if current_history.super_admin? %>
+      <%#= link_to 'Add New history/admin', register_path %>
+    <%# end %>
+<div id="table" class="table-editable">
+    <table class="table">
+      <tr>
+        <th>First Name</th>
+        <th>Last Name</th>
+        <th>Age</th>
+        <th>Create on</th>
+        <th>Reason</th>
+        <th>Created by</th>
+        <th>Edit</th>
+        <th>Delete</th>
+      </tr>
+      
+        <% @histories.each do |history| %>
+        <tr>
+        <td contenteditable="false"><%= history.firstname%></td>
+        <td contenteditable="false"><%= history.lastname%></td>
+        <td contenteditable="false"><%= history.age%></td>
+        <td contenteditable="false"><%= history.created_at.strftime("%d %b, %Y")%></td>
+        <td contenteditable="false"><%= history.reason%></td>
+        <% if current_user.super_admin? %>
+        <td conteneditable="false"><%= history.user.firstname  + " (" + history.user.role.humanize + ")" rescue ""%></td>
+        <%else%>
+        <td conteneditable="false"><%= history.user.firstname%></td>
+
+        <%end%>
+        
+        <td contenteditable="false"><%= link_to "Edit", edit_history_path(history)%></td>
+        <td contenteditable="false"><%= link_to "Delete", history, method: :delete, data: { confirm: 'Are you sure?' }%></td>
+      </tr>
+
+        <%end%>
+        
+        
+      <!-- This is our clonable table line -->
+      
+    </table>
+  </div>
+
+</div>

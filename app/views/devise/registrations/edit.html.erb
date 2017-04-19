@@ -4,6 +4,39 @@
   <%= devise_error_messages! %>
 
   <div class="field">
+    <%= f.label :firstname%><br>
+    <%= f.text_field :firstname %>
+  </div>
+
+  <div class="field">
+    <%= f.label :lastname%><br>
+    <%= f.text_field :lastname %>
+  </div>
+
+  <div class="field">
+    <%= f.label :Gender%><br>
+    <%= f.label :Male ,"Male" %>
+    <%= f.radio_button :gender, "male", autofocus: true %>
+  
+  
+    <%= f.label :Female, "Female" %>
+    <%= f.radio_button :gender, "female", autofocus: true %>
+  </div>
+  <div class="field">
+    <%= f.label :phone %><br />
+    <%= f.text_field :phone%>
+  </div>
+  <div class="field">
+    <%= f.label :city %><br />
+    <%= f.text_field :city%>
+  </div>
+  <% if is_super? %>
+    <div class="field">
+      <%= f.label :role %><br>
+      <%= f.select(:role, User::ROLES.map{ |r| [r.humanize, r] }, {}, { :autofocus => true, include_blank: 'Select a Role' }) %>
+    </div>
+  <% end %>
+  <div class="field">
     <%= f.label :email %><br />
     <%= f.email_field :email, autofocus: true %>
   </div>

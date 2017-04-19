@@ -1,6 +1,12 @@
 Rails.application.routes.draw do
+  
+    root to: 'visitors#index'
+
+
+
+  resources :histories
+  resources :presriptions
   resources :medicines
-  	root to: 'visitors#index'
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 
     resources :comments
@@ -16,13 +22,21 @@ Rails.application.routes.draw do
 
   get '/faq', to: "pages#faq"
   get '/index', to: "userpanel#index"
+  get '/prescription', to: "userpanel#prescription"
+  get '/account', to: "userpanel#account"
   get '/my_posts', to: "posts#my_questions"
+  get '/patient_history', to: "userpanel#patient_history"
   get '/watch/:id', to: 'videos#watch', as: :watch
-  get '/stream', to: 'videos#stream', as: :stream
+  get '/stream', to: 'videos#stream', as: :stream 
+
 
   post '/ask_new_question', to: 'posts#new'
   
-  devise_for :users , controllers: {registrations: "registrations"}
-  match ':controller(/:action(/:id))',:via => [:get,:post,:delete]
+  devise_for :users ,controllers: {registrations: "registrations"}
+  match ':controller(/:action(/:id))',:via => [:get,:post,:delete] 
+
+  # as :user do
+  #     get "/admins/register", to: "registrations#new", as: "register"
+  # end
 
 end

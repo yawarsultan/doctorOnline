@@ -1,5 +1,9 @@
+<% if is_super? %>
+  <h3>Add User</h3>
+  <p>Hi admin user you can add new user directly in the system.</p>
+<%else%>
 <h2>Sign up</h2>
-
+<%end%>
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
   <%= devise_error_messages! %>
   <div class="field">
@@ -27,6 +31,12 @@
     <%= f.label :city %><br />
     <%= f.text_field :city%>
   </div>
+  <% if is_super? %>
+    <div class="field">
+      <%= f.label :role %><br>
+      <%= f.select(:role, User::ROLES.map{ |r| [r.humanize, r] }, {}, { :autofocus => true, include_blank: 'Select a Role' }) %>
+    </div>
+  <% end %>
   <div class="field">
     <%= f.label :email %><br />
     <%= f.email_field :email%>
@@ -46,7 +56,7 @@
   </div>
 
   <div class="actions">
-    <%= f.submit "Sign up" %>
+    <%= f.submit %>
   </div>
 <% end %>
 

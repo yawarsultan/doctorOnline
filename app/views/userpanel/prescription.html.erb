@@ -1,0 +1,53 @@
+<div class="container">
+<h1>Prescriptions</h1>
+<%# if current_presription.super_admin? %>
+      <%#= link_to 'Add New presription/admin', register_path %>
+    <%# end %>
+<div id="table" class="table-editable">
+    <table class="table">
+      <tr>
+        <th>Patient Name</th>
+        <th>Patient Email</th>
+        <th>Drug Name</th>
+        <th>Disease</th>
+        <th>Patient Age</th>
+        <th>Drug Quantity</th>
+        <th>Doctor</th>
+        <th>Show</th>
+        <% if current_user.doctor? || current_user.super_admin? %>
+        <th>Edit</th>
+        <th>Delete</th>
+        <%end%>
+      </tr>
+      
+        <% @presriptions.each do |presription| %>
+        <tr>
+        <td contenteditable="false"><%= presription.name%></td>
+        <td contenteditable="false"><%= presription.user_email%></td>
+        <td contenteditable="false"><%= presription.drug_name%></td>
+        <td contenteditable="false"><%= presription.disease%></td>
+        <td contenteditable="false"><%= presription.age%></td>
+        <td contenteditable="false"><%= presription.quantity%></td>
+        <% if current_user.super_admin? %>
+        <td conteneditable="false"><%= presription.user.firstname  + " (" + presription.user.role.humanize + ")" rescue ""%></td>
+        <%else%>
+        <td conteneditable="false"><%= presription.user.firstname%></td>
+
+        <%end%>
+        <td contenteditable="false"><%= link_to "Show", presription %></td>
+        <% if current_user.doctor? || current_user.super_admin? %>
+        <td contenteditable="false"><%= link_to "Edit", edit_presription_path(presription)%></td>
+
+        <td contenteditable="false"><%= link_to "Delete", presription, method: :delete, data: { confirm: 'Are you sure?' }%></td>
+        <%end%>
+      </tr>
+
+        <%end%>
+        
+        
+      <!-- This is our clonable table line -->
+      
+    </table>
+  </div>
+
+</div>

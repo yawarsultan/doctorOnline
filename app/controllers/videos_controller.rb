@@ -5,6 +5,12 @@ class VideosController < ApplicationController
      @streams = Stream.all
     @stream     = current_user.stream || current_user.create_stream
     gon.opentok = opentok_data(@stream)
+    @presription = Presription.new
+    @history = History.new
+  end
+
+  def show_presription
+    @presriptions = Presription.where(user_email: current_user.email)
   end
 
   def watch

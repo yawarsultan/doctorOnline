@@ -21,4 +21,10 @@
 //= require script
 //= require video
 //= require video2
+//= require helloworld
+
+
+//= require jquery.purr
+//= require best_in_place
+
 //= require_tree .

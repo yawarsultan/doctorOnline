@@ -1,0 +1,30 @@
+<% @presriptions.each do |p| %>
+<p>
+  <strong>Patient Name:</strong>
+  <%= p.name %>
+</p>
+
+<p>
+  <strong>Patient Age:</strong>
+  <%= p.age %>
+</p>
+
+<p>
+  <strong>Disease:</strong>
+  <%= p.disease %>
+</p>
+
+<p>
+  <strong>Drug name:</strong>
+  <%= p.drug_name %>
+</p>
+
+<p>
+  <strong>Quantity:</strong>
+  <%= p.quantity %>
+</p>
+<%end%>
+
+
+<%#= link_to 'Edit', edit_presription_path(@presription) %> 
+<%#= link_to 'Back', presriptions_path %>

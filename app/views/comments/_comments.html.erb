@@ -1,6 +1,17 @@
 <% commentable.comments.each do |comment| %>
 	<div class="well">
-		<%= comment.body %>
+		<p class="text-muted"><strong>Posted by: <%= comment.author %></strong> -
+    <%= time_ago_in_words(comment.created_at) %> ago</p>
+	
+	<% if current_user.present? || current_user.super_admin? %>
+    	<% if comment.author == current_user.firstname %>
+       		<%= best_in_place comment, :body %>
+    	<%else%>
+       		<%= comment.body %>   
+    	<%end%>   
+  	<%else%>
+   		<%= comment.body%>
+  	<% end -%>
 		<div style="float:right">
 	  <% if current_user.present? %>
 	    <% if comment.author == current_user.firstname || current_user.super_admin? %> 

@@ -1,0 +1,21 @@
+<div class="container">
+	<div class="row">
+		<div class="col-md-10">
+            <div class="input-group" id="adv-search">
+                <div class="input-group-btn-2">
+                    <div class="btn-group" role="group">
+                        <div class="dropdown dropdown-lg">
+                            <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-expanded="false">Make History<span class="caret"></span></button>
+                            <div class="dropdown-menu dropdown-menu-right" role="menu">
+								<%= render '/histories/form', history: @history %>
+                               
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<%#= link_to 'Back', histories_path %>

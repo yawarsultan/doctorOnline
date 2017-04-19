@@ -6,6 +6,8 @@ class User < ApplicationRecord
 
   has_one :stream
   has_many :posts
+  has_many :presriptions
+  has_many :histories
    ROLES = %w[super_admin patient doctor]
 
 
