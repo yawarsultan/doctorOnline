@@ -29,7 +29,7 @@
         <td conteneditable="false"><%= history.user.firstname%></td>
 
         <%end%>
-        
+        <td contenteditable="false"><%= link_to "Show", history_path(history) %></td>
         <td contenteditable="false"><%= link_to "Edit", edit_history_path(history)%></td>
         <td contenteditable="false"><%= link_to "Delete", history, method: :delete, data: { confirm: 'Are you sure?' }%></td>
       </tr>

@@ -12,7 +12,7 @@
         <th>City</th>
         <th>Phone</th>
         <th>Email</th>
-        <th>Online Hours</th>
+        <!-- <th>Online Hours</th> -->
         <th>Edit</th>
         <th>Delete</th>
       </tr>
@@ -24,12 +24,12 @@
         <td contenteditable="false"><%= @user.city%></td>
         <td contenteditable="false"><%= @user.phone%></td>
         <td contenteditable="false"><%= @user.email%></td>
-        <td contenteditable="false"><%= Time.at((current_user.total_online_time) * 60).utc.strftime("%H:%M:%S")%></td>
+        <!-- <td contenteditable="false"><%#= Time.at((current_user.total_online_time) * 60).utc.strftime("%H:%M:%S")%></td> -->
 
        
         
-        <td contenteditable="false"><%#= link_to "Edit", edit_user_path(@user)%></td>
-        <td contenteditable="false"><%#= link_to "Delete", @user, method: :delete, data: { confirm: 'Are you sure?' }%></td>
+        <td contenteditable="false"><%= link_to "Edit", edit_user_registration_path()%></td>
+        <td contenteditable="false"><%= link_to "Delete my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete %></td>
       </tr>
 
         

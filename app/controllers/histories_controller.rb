@@ -11,6 +11,11 @@ class HistoriesController < ApplicationController
   # GET /histories/1
   # GET /histories/1.json
   def show
+    @history = History.find(params[:id])
+    respond_to do |format|
+      format.html
+      format.pdf { render :layout => false }
+    end
   end
 
   # GET /histories/new
