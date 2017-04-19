@@ -1,4 +1,4 @@
-<%= form_for(presription) do |f| %>
+<%= form_for(presription, remote: true) do |f| %>
  
   <div >
     <%#= f.label :name %>
@@ -28,6 +28,6 @@
   </div><br>
 
   <div >
-    <%= f.submit 'Create Prescription', class: "btn btn-primary" %>
+    <%= f.submit 'Create Prescription', class: "btn btn-primary", id: "create_button" %>
   </div>
 <% end %>

@@ -38,6 +38,7 @@ class PresriptionsController < ApplicationController
     respond_to do |format|
       if @presription.save
         format.html { redirect_to stream_path, notice: 'Presription was successfully created.' }
+        # format.js {}
         format.json { render :show, status: :created, location: @presription }
       else
         format.html { render :new }

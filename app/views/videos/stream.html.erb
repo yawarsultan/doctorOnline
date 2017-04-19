@@ -27,9 +27,11 @@
 
 <%#= link_to 'Sign Out', destroy_user_session_path, :method=>'delete' %>
 <% if current_user.doctor? %>
-<%= render template: "presriptions/new"%><br>
-<%= render template: "histories/new" %>
+<%= render template: "/presriptions/new"%><br>
+<%= render template: "/histories/new" %>
 <% end%>
+<div id="presription">
+</div>
 <%# if current_user.patient? %>
 <%#= render template: "videos/show_presription" %>
 <%#end%>
