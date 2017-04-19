@@ -1,21 +1,20 @@
 <div class="container">
-	<div class="row">
-		<div class="col-md-10">
-            <div class="input-group" id="adv-search">
-                <div class="input-group-btn-2">
-                    <div class="btn-group" role="group">
-                        <div class="dropdown dropdown-lg">
-                            <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-expanded="false">Make History<span class="caret"></span></button>
-                            <div class="dropdown-menu dropdown-menu-right" role="menu">
-								<%= render '/histories/form', history: @history %>
-                               
-                            </div>
-                        </div>
-                    </div>
+    <div class="row">
+    <div class="col-md-4">
+<div style="position: relative; right: 0px;">
+        
+        <div class="form_main">
+                <h4 class="heading"><strong>Make </strong> History<span></span></h4>
+                <div class="form">
+                <!-- <form action="contact_send_mail.php" method="post" id="contactFrm" 
+                name="contactFrm"> -->
+					<%= render '/histories/form', history: @history %>
+                    
+                <!-- </form> -->
                 </div>
             </div>
         </div>
     </div>
 </div>
-
+</div></div>
 <%#= link_to 'Back', histories_path %>

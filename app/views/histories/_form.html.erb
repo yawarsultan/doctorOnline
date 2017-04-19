@@ -1,25 +1,25 @@
 <%= form_for(history) do |f| %>
   
 
-  <div class="form-group">
-    <%= f.label :firstname, "First Name", for: "contain"  %>
-    <%= f.text_field :firstname, placeholder: "Firstname", class: "form-control" %>
+  <div>
+    <%#= f.label :firstname, "First Name", for: "contain"  %>
+    <%= f.text_field :firstname, placeholder: "Firstname",class: "txt" %>
     
   </div>
   <br>
-  <div class="form-group">
-    <%= f.label :lastname, "Last Name" , for: "contain" %>
-    <%= f.text_field :lastname, placeholder: "Lastname", class: "form-control" %>
+  <div>
+    <%#= f.label :lastname, "Last Name" , for: "contain" %>
+    <%= f.text_field :lastname, placeholder: "Lastname", class: "txt" %>
   </div>
   <br>
-  <div class="form-group">
-    <%= f.label :age, "Age", for: "contain" %>
-    <%= f.text_field :age, placeholder: "Age",class: "form-control" %>
+  <div>
+    <%#= f.label :age, "Age", for: "contain" %>
+    <%= f.text_field :age, placeholder: "Age",class: "txt" %>
   </div>
   <br>
-  <div class="form-group">
-    <%= f.label :reason, "Reason for today's visit", for: "contain" %>
-    <%= f.text_area :reason, placeholder: "Reason", class: "form-control" %>
+  <div>
+    <%#= f.label :reason, "Reason for today's visit", for: "contain" %>
+    <%= f.text_area :reason, placeholder: "Reason for visit", class: "txt" %>
   </div>
   <br>
   <div>
