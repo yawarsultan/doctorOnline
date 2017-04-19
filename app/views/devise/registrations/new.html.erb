@@ -1,64 +1,77 @@
-<% if is_super? %>
-  <h3>Add User</h3>
-  <p>Hi admin user you can add new user directly in the system.</p>
-<%else%>
-<h2>Sign up</h2>
-<%end%>
-<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-  <%= devise_error_messages! %>
-  <div class="field">
-    <%= f.label :firstname %><br />
-    <%= f.text_field :firstname, autofocus: true %>
-  </div>
-  <div class="field">
-    <%= f.label :lastname %><br />
-    <%= f.text_field :lastname%>
-  </div>
-  <div class="field">
-    <%= f.label :Gender%><br>
-    <%= f.label :Male ,"Male" %>
-    <%= f.radio_button :gender, "male", autofocus: true %>
-  
-  
-    <%= f.label :Female, "Female" %>
-    <%= f.radio_button :gender, "female", autofocus: true %>
-  </div>
-  <div class="field">
-    <%= f.label :phone %><br />
-    <%= f.text_field :phone%>
-  </div>
-  <div class="field">
-    <%= f.label :city %><br />
-    <%= f.text_field :city%>
-  </div>
-  <% if is_super? %>
-    <div class="field">
-      <%= f.label :role %><br>
-      <%= f.select(:role, User::ROLES.map{ |r| [r.humanize, r] }, {}, { :autofocus => true, include_blank: 'Select a Role' }) %>
+<div class="container">
+  <div class="row">
+    <div class="col-md-4">
+        <div class="form_main">
+                <h4 class="heading"><strong>Sign </strong> Up <span></span></h4>
+                <div class="form">
+                <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+                    <%= devise_error_messages! %>
+                    <div>
+                      <%= f.label :firstname %><br />
+                      <%= f.text_field :firstname, autofocus: true, class: "txt" %>
+                    </div>
+                    <div>
+                      <%= f.label :lastname %><br />
+                      <%= f.text_field :lastname, class: "txt"%>
+                    </div>
+                    <div>
+                      <%= f.label :Gender%><br>
+                      <%= f.label :Male ,"Male" %>
+                      <%= f.radio_button :gender, "male", autofocus: true %>
+                    
+                    
+                      <%= f.label :Female, "Female" %>
+                      <%= f.radio_button :gender, "female", autofocus: true %>
+                    </div>
+                    <div>
+                      <%= f.label :phone %><br />
+                      <%= f.text_field :phone, class: "txt"%>
+                    </div>
+                    <div>
+                      <%= f.label :city %><br />
+                      <%= f.text_field :city, class: "txt"%>
+                    </div>
+                    <% if is_super? %>
+                      <div class="field">
+                        <%= f.label :role %><br>
+                        <%= f.select(:role, User::ROLES.map{ |r| [r.humanize, r] }, {}, { :autofocus => true, include_blank: 'Select a Role' }) %>
+                      </div>
+                    <% end %>
+                    <div>
+                      <%= f.label :email %><br />
+                      <%= f.email_field :email, class: "txt4"%>
+                    </div>
+
+                    <div>
+                      <%= f.label :password %>
+                      <% if @minimum_password_length %>
+                      <em>(<%= @minimum_password_length %> characters minimum)</em>
+                      <% end %><br />
+                      <%= f.password_field :password, autocomplete: "off", class: "txt5" %>
+                    </div>
+
+                    <div>
+                      <%= f.label :password_confirmation %><br />
+                      <%= f.password_field :password_confirmation, autocomplete: "off", class: "txt5" %>
+                    </div>
+
+                    <div>
+                      <%= f.submit "Sign Up", class: "btn btn-primary"%>
+                    </div>
+                  <% end %>
+
+                </div>
+            </div>
+        </div>
     </div>
-  <% end %>
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email%>
   </div>
-
-  <div class="field">
-    <%= f.label :password %>
-    <% if @minimum_password_length %>
-    <em>(<%= @minimum_password_length %> characters minimum)</em>
-    <% end %><br />
-    <%= f.password_field :password, autocomplete: "off" %>
-  </div>
-
-  <div class="field">
-    <%= f.label :password_confirmation %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "off" %>
-  </div>
-
-  <div class="actions">
-    <%= f.submit %>
-  </div>
-<% end %>
+</div>
+<%# if is_super? %>
+  <!-- <h3>Add User</h3> -->
+  <!-- <p>Hi admin user you can add new user directly in the system.</p> -->
+<%#else%>
+<!-- <h2>Sign up</h2> -->
+<%#end%>
 
 <%#= render "devise/shared/links" %>
  
