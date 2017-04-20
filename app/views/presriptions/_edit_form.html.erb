@@ -1,0 +1,33 @@
+<%= form_for(presription, remote: true) do |f| %>
+ 
+  <div >
+    <%= f.label :name %>
+    <%= f.text_field :name, class: "txt", placeholder: "Patient Name" %>
+  </div><br>
+  <div >
+    <%= f.label :user_email, for: "contain" %>
+    <%= f.email_field :user_email, class: "txt4", placeholder: "Patient Email" , required: true %>
+  </div><br>
+  <div  >
+    <%= f.label :age, for: "contain" %>
+    <%= f.text_field :age, class: "txt", placeholder: "Patient Age" %>
+  </div><br>
+  <div >
+    <%= f.label :disease, for: "contain" %>
+    <%= f.text_field :disease, class: "txt", placeholder: "Disease" %>
+  </div><br>
+
+  <div >
+    <%= f.label :drug_name, for: "contain" %>
+    <%= f.text_field :drug_name, class: "txt", placeholder: "Drug Name" %>
+  </div><br>
+
+  <div>
+    <%= f.label :quantity, for: "contain" %>
+    <%= f.text_field :quantity, class: "txt", placeholder: "Drug Quantity" %>
+  </div><br>
+
+  <div >
+    <%= f.submit 'Edit Prescription', class: "btn btn-primary", id: "create_button" %>
+  </div>
+<% end %>
