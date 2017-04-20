@@ -14,7 +14,7 @@
                         <em>Date: <%= @history.created_at.strftime("%d %b, %Y") %></em>
                     </p>
                     <p>
-                        <em>History #: <%=@history.id%></em>
+                        <em>Prescription #: <%=@history.id%></em>
                     </p>
                 </div>
             </div>
@@ -49,3 +49,5 @@
             </div>
         </div>
     </div>
+<%#= link_to 'Edit', edit_history_path(@history) %> 
+<%#= link_to 'Back', historys_path %>

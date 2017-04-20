@@ -36,6 +36,7 @@ class HistoriesController < ApplicationController
     respond_to do |format|
       if @history.save
         format.html { redirect_to stream_path, notice: 'History was successfully created.' }
+        format.js {}
         format.json { render :show, status: :created, location: @history }
       else
         format.html { render :new }
