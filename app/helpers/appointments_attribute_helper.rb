@@ -11,7 +11,9 @@ module AppointmentsAttributeHelper
     appointment.end_time.strftime("%l:%M %p")
   end
   
-  
+  def doctor_name(appointment)
+    appointment.doctor_name
+  end
 
   def show_duration(appointment)
     options = {

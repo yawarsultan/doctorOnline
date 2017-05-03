@@ -26,6 +26,10 @@ class UserpanelController < ApplicationController
 		end
 	end
 
+	def my_appointments
+		@appointments = Appointment.where(doctor_name: current_user.firstname)
+	end
+
 	def video
 		
 	end
