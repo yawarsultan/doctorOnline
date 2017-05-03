@@ -10,7 +10,7 @@ gem 'turbolinks'
 
 gem 'jquery-rails'
 gem 'jbuilder', '~> 2.0'
-
+gem "simple_calendar"
 gem 'figaro' # we'll use it to store our API keys
 gem 'gon' # this one to expose our API keys to JS
 gem 'opentok' # SDK to use TokBox library

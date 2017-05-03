@@ -22,7 +22,7 @@
 //= require video
 //= require video2
 //= require helloworld
-
+//= require bootstrap-datepicker
 
 //= require jquery.purr
 //= require best_in_place

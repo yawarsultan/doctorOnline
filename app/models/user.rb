@@ -8,6 +8,7 @@ class User < ApplicationRecord
   has_many :posts
   has_many :presriptions
   has_many :histories
+  has_many :appointments
    ROLES = %w[super_admin patient doctor]
 
 
@@ -29,4 +30,7 @@ class User < ApplicationRecord
     ROLES.map { |role| [role.titlecase, role] } + [["None", " "]]
   end
 
+  def upcoming_appointments
+    appointments.order(appointment_time: :desc).select { |a| a.appointment_time > (DateTime.now) }
+  end
 end
