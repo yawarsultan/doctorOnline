@@ -5,7 +5,11 @@
       <div class="media-left">
         <!-- user avators can go here -->
         <a href="#">
-          <img class="media-object" src="http://placehold.it/64x64" alt="...">
+          <% if message.sender.avatar.url.present?%>
+            <%= image_tag(message.sender.avatar.url(:thumb), class: "media-object") %>
+          <%else%>
+            <img class="media-object" src="http://placehold.it/64x64" alt="...">
+          <%end%>
         </a>
       </div>
       <div class="media-body">

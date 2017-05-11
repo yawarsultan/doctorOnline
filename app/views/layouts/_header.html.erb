@@ -8,7 +8,7 @@
                <li class='last'><a href='/contact'><span>Contact</span></a></li>
                <% if current_user.present? %>
                  
-                <li class=' has-sub'><a href='#'><span><%= current_user.firstname %></span></a>
+                <li class=' has-sub'><a href='#'><span><%= image_tag(current_user.avatar.url(:thumb), class: "round-image-50") %></span></a>
                   <ul>
                     <li><%= link_to "Inbox", mailbox_inbox_path %></li>
                     <li><a href='/stream'><span>video</span></a></li>
