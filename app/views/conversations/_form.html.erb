@@ -1,6 +1,10 @@
 <%= form_for :conversation, url: :conversations, html: { class: "" } do |f| %>
     <div class="form-group">
-      <%= f.label :recipients %>
+      <% if current_user.patient? %>
+      <%= f.label :recipients, "Doctors" %>
+      <%elsif current_user.doctor? %>
+      <%= f.label :recipients, "Patients" %>
+      <%end%>
       <% if current_user.patient? %>
       <%= f.select(:recipients, User.where(role: "doctor").collect {|p| [ p.firstname, p.id ] }, {}, { multiple: true , class: "chosen-select form-control" })%>
       <% elsif current_user.doctor? %>
@@ -13,6 +17,7 @@
       <%= f.label :subject %>
       <%= f.text_field :subject, placeholder: "Subject", class: "form-control" %>
     </div>
+
     <div class="form-group">
       <%= f.label :message %>
       <%= f.text_area :body, class: 'form-control',placeholder: "Type your message here", rows: 4  %>
