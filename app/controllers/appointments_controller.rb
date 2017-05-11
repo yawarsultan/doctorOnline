@@ -21,10 +21,12 @@ class AppointmentsController < ApplicationController
     @appointment = Appointment.new(appointment_params.merge(user_id: current_user.id))
     if @appointment.valid?
       @appointment.save
+      flash[:success] = "Appointment created successfully you will be contacted by the doctor at the specified time"
       redirect_to appointments_path
     else 
       @appointment.user = nil
       @appointments = current_user.appointments.select { |a| a.persisted? }
+      flash[:error] =  "There are some errors in the form please fill again."
       render :new
     end
   end
