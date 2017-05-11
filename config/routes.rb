@@ -14,6 +14,14 @@ Rails.application.routes.draw do
       resources :comments, module: :posts
     end
 
+    resources :conversations do
+      member do
+        post :reply
+        post :trash
+        post :untrash
+      end
+    end
+
   get '/contact', to: "pages#contact"
 
   get '/services', to: "pages#services"
@@ -29,7 +37,9 @@ Rails.application.routes.draw do
   get '/watch/:id', to: 'videos#watch', as: :watch
   get '/stream', to: 'videos#stream', as: :stream 
 
-
+  get "mailbox/inbox" => "mailbox#inbox", as: :mailbox_inbox
+  get "mailbox/sent" => "mailbox#sent", as: :mailbox_sent
+  get "mailbox/trash" => "mailbox#trash", as: :mailbox_trash
   post '/ask_new_question', to: 'posts#new'
   
   devise_for :users ,controllers: {registrations: "registrations"}

@@ -4,6 +4,8 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
   include CanCan::ControllerAdditions
   before_action :set_online_time, if: proc { user_signed_in? }
+  helper_method :mailbox
+  helper_method :mailbox, :conversation
 
   def check_not_user
     redirect_to_root_with_error if current_user.patient?
@@ -37,6 +39,14 @@ class ApplicationController < ActionController::Base
 
   private
 
+  def mailbox
+    @mailbox ||= current_user.mailbox
+  end
+
+  def conversation
+    @conversation ||= mailbox.conversations.find(params[:id])
+  end
+  
   def time_diff(start_time, end_time)
       (start_time -  end_time) / 60
   end

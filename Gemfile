@@ -21,7 +21,10 @@ gem 'autoprefixer-rails'
 gem 'ransack'
 gem 'cancancan'
 gem 'prawn_rails' #for pdf downloading of file
+gem 'mailboxer' #for inbox messages within app
+gem 'chosen-rails' # for select tags
 # to edit comment in the same page
+gem 'paperclip'
 gem 'best_in_place', '~> 3.0.1'
 group :development do
   gem 'web-console'

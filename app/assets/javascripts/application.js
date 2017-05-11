@@ -12,7 +12,9 @@
 //
 //= require jquery
 //= require jquery_ujs
+//= require chosen-jquery
 //= require turbolinks
+//= require conversations
 //= require bootstrap-sprockets
 //= require jquery1111.min
 //= require css3-mediaqueries

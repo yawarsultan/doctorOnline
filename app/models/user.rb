@@ -3,7 +3,8 @@ class User < ApplicationRecord
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
-
+  acts_as_messageable
+         
   has_one :stream
   has_many :posts
   has_many :presriptions
@@ -32,5 +33,14 @@ class User < ApplicationRecord
 
   def upcoming_appointments
     appointments.order(appointment_time: :desc).select { |a| a.appointment_time > (DateTime.now) }
+  end
+
+
+  def mailboxer_name
+    self.name
+  end
+
+  def mailboxer_email(object)
+    self.email
   end
 end
