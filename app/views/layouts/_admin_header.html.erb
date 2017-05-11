@@ -20,7 +20,7 @@
                   </ul>
                </li>
                <% elsif current_user.doctor? %>
-                    <li class=' has-sub'><a href='#'>Doctor <span><%= image_tag(current_user.avatar.url(:thumb), class: "round-image-50") %></span></a>
+                    <li class=' has-sub'><a href='#'><span><%= image_tag(current_user.avatar.url(:thumb), class: "round-image-50") %></span></a>
                   <ul>
                     <li><%= link_to "Inbox", mailbox_inbox_path %></li>
                       <li><a href="/account"><span>My Account</span></a></li>
