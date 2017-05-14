@@ -7,6 +7,7 @@ class ApplicationController < ActionController::Base
   helper_method :mailbox
   helper_method :mailbox, :conversation
 
+  
   def check_not_user
     redirect_to_root_with_error if current_user.patient?
   end 

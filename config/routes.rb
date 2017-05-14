@@ -36,7 +36,7 @@ Rails.application.routes.draw do
   get '/patient_history', to: "userpanel#patient_history"
   get '/watch/:id', to: 'videos#watch', as: :watch
   get '/stream', to: 'videos#stream', as: :stream 
-
+  get '/my_appointments', to: 'userpanel#my_appointments'
   get "mailbox/inbox" => "mailbox#inbox", as: :mailbox_inbox
   get "mailbox/sent" => "mailbox#sent", as: :mailbox_sent
   get "mailbox/trash" => "mailbox#trash", as: :mailbox_trash
@@ -44,7 +44,7 @@ Rails.application.routes.draw do
   
   devise_for :users ,controllers: {registrations: "registrations"}
   match ':controller(/:action(/:id))',:via => [:get,:post,:delete] 
-
+  
   # as :user do
   #     get "/admins/register", to: "registrations#new", as: "register"
   # end

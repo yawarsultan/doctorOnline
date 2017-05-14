@@ -10,7 +10,7 @@
       <% elsif current_user.doctor? %>
       <%= f.select(:recipients, User.where(role: "patient").collect {|p| [ p.firstname, p.id ] }, {}, { multiple: true , class: "chosen-select form-control" })%>
       <% elsif current_user.super_admin?  %>
-      <%= f.select(:recipients, User.all.collect {|p| [ p.firstname, p.id ] }, {}, { multiple: true , class: "chosen-select form-control" })%>
+      <%= f.select(:recipients, User.all.collect {|p| [ p.firstname, p.id ] }, {}, { multiple: true , class: "chosen-select form-control"})%>
       <%end%>
     </div>
     <div class="form-group">

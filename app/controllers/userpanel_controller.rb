@@ -27,7 +27,13 @@ class UserpanelController < ApplicationController
 	end
 
 	def my_appointments
-		@appointments = Appointment.where(doctor_name: current_user.firstname)
+		if current_user.super_admin?
+			@appointments = Appointment.all
+		elsif current_user.doctor?
+			@appointments = Appointment.where(doctor_name: current_user.firstname)
+		else
+			@appointments = Appointment.where(user_id: current_user.id)
+		end
 	end
 
 	def video

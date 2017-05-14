@@ -1,5 +1,5 @@
 <div class="container">
-<h1>Prescriptions</h1>
+<h1>Appointments</h1>
 <%# if current_appointment.super_admin? %>
       <%#= link_to 'Add New appointment/admin', register_path %>
     <%# end %>
@@ -8,13 +8,11 @@
       <tr>
         <th>Patient Name</th>
         <th>Patient Email</th>
-        <th>Drug Name</th>
-        <th>Disease</th>
-        <th>Patient Age</th>
-        <th>Drug Quantity</th>
-        <th>Doctor</th>
+        <th>Doctor Name</th>
+        <th>Appointment Time</th>
+        <th>Appointment Duration</th>
         <th>Show</th>
-        <% if current_user.doctor? || current_user.super_admin? %>
+        <% if current_user.patient? || current_user.super_admin? %>
         <th>Edit</th>
         <th>Delete</th>
         <%end%>
@@ -22,20 +20,15 @@
       
         <% @appointments.each do |appointment| %>
         <tr>
-        <td contenteditable="false"><%= appointment.user.firstname%></td>
-        <td contenteditable="false"><%= appointment.user_email%></td>
-        <td contenteditable="false"><%= appointment.drug_name%></td>
-        <td contenteditable="false"><%= appointment.disease%></td>
-        <td contenteditable="false"><%= appointment.age%></td>
-        <td contenteditable="false"><%= appointment.quantity%></td>
-        <% if current_user.super_admin? %>
-        <td conteneditable="false"><%= appointment.user.firstname  + " (" + appointment.user.role.humanize + ")" rescue ""%></td>
-        <%else%>
-        <td conteneditable="false"><%= appointment.user.firstname%></td>
+        <td contenteditable="false"><%= appointment.patient_name%></td>
+        <td contenteditable="false"><%= appointment.user.email%></td>
+        <td contenteditable="false"><%= appointment.doctor_name%></td>
+        <td contenteditable="false"><%= full_time(appointment) %></td>
+        <td contenteditable="false"><%= show_duration(appointment) %></td>
+        
 
-        <%end%>
         <td contenteditable="false"><%= link_to "Show", appointment %></td>
-        <% if current_user.doctor? || current_user.super_admin? %>
+        <% if current_user.patient? || current_user.super_admin? %>
         <td contenteditable="false"><%= link_to "Edit", edit_appointment_path(appointment)%></td>
 
         <td contenteditable="false"><%= link_to "Delete", appointment, method: :delete, data: { confirm: 'Are you sure?' }%></td>
