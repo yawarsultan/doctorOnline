@@ -1,38 +1,42 @@
-<div class="header">
-        <div id='cssmenu' >
-            <ul>
-               <li class=""><a href='/'><span>Online Doctor</span></a></li>
-               <li><a href='/faq'><span>Faq</span></a></li>
-               <li><a href='/about'><span>About</span></a></li>
-               <li><a href="/appointments"><span>See a doctor</span></a></li>
-               <li class='last'><a href='/contact'><span>Contact</span></a></li>
-               <% if current_user.present? %>
-                 
-                <li class=' has-sub'><a href='#'><span><%= image_tag(current_user.avatar.url(:thumb), class: "round-image-50") %></span></a>
-                  <ul>
-                    <li><%= link_to "Inbox", mailbox_inbox_path %></li>
-                    <li><a href="/my_appointments"><span>Appointments</span></a></li>
-                    <li><%= link_to "Edit Account", edit_user_registration_path%></li>
-                    <li><a href='/stream'><span>video</span></a></li>
-                    <li><a href='/prescription'><span>Prescription</span></a></li>
-                    <li><a href='/my_posts'><span>My Posts</span></a></li>
-                    <li><%= link_to  destroy_user_session_path, :method => 'delete' do%> Signout<% end %></li>
-                  </ul>
-               </li>
-               <% else %>
-               <li><%= link_to new_user_session_path do %><span>Sign In</span><%end%></li>
-               <li><%= link_to new_user_registration_path do %><span>Sign Up</span><%end%></li>
-                <%end%>
 
-    <%= yield(:search) %>
-            
-
-            </ul>
-
-
-
-         </div>
-
-
+  <!-- banner -->
+  <div class="banner">
+    <div class="header-nav"><!-- header-three -->   
+      <nav class="navbar navbar-default">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+            <span class="sr-only">Toggle navigation</span>
+            Menu 
+          </button> 
+          <h1><a class="navbar-brand" href="/"><i class="fa fa-heartbeat"></i>Online <span>Doctor</span></a></h1> 
+        </div>
+        <!-- top-nav -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+          <ul class="nav navbar-nav">
+            <li><a href="/" class="active">Home</a></li>
+            <li><a href="/about" class="scroll">About</a></li>    
+            <li><a href="/faq" class="scroll">FAQ</a></li>
+            <li><a href="/contact" class="scroll">Contact Us</a></li>    
+            <li><a href="/appointments" class="scroll">Book Appointment</a></li>   
+            <% if current_user.present? %>
+            <li><a href="icons.html" data-toggle="dropdown"><%= image_tag(current_user.avatar.url(:thumb), class: "round-image-50") %><span class="caret"></span></a>
+              <ul class="dropdown-menu">
+                <li><%= link_to "Inbox", mailbox_inbox_path %></li>
+                <li><a href="/my_appointments">My Appointments</a></li>
+                <li><%= link_to "Edit Account", edit_user_registration_path%></li>
+                <li><a href='/stream'>video</a></li>
+                <li><a href='/prescription'>Prescription</a></li>
+                <li><a href='/my_posts'>My Posts</a></li>
+                <li><%= link_to  destroy_user_session_path, :method => 'delete' do%> Signout<% end %></li>
+              </ul>
+            </li> 
+            <%else%>
+            <li><%= link_to new_user_session_path do %>Sign In<%end%></li>
+            <li><%= link_to new_user_registration_path do %>Sign Up<%end%></li>
+            <%end%>
+          </ul>  
+          <div class="clearfix"> </div> 
+        </div>
+      </nav>    
     </div>
-          
+    <!-- banner-text -->

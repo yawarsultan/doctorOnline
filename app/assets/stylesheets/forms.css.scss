@@ -1,5 +1,6 @@
 form_main {
     width: 100%;
+
 }
 .form_main h4 {
     font-family: roboto;
@@ -8,6 +9,7 @@ form_main {
     margin-bottom: 15px;
     margin-top: 20px;
     text-transform: uppercase;
+    text-align: center;
 }
 .heading {
     border-bottom: 1px solid #fcab0e;
@@ -67,7 +69,12 @@ form_main {
     padding: 10px 0 10px 5px;
     width: 100%;
 }
-
+.txtarea{
+    border: 1px solid #ccc;
+    margin: 10px 0;
+    padding: 10px 0 10px 5px;
+    width: 100%;
+}
 .round-image-50 {
     background-color: white;
     border: 1px solid #d9d9d9;

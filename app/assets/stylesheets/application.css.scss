@@ -4,20 +4,17 @@
  *= require_style
  *= require_owl.carousel
  *= require_owl.theme
- *= require menu
- *= require zerogrid
- *= require lightbox
+ *= require bootstrap
  *= require font-awesome
- *= require font-awesome.min
+ *= require lightbox
+ *= require style
+ *= require appointments
+ *= require bootstrap-datepicker
+ *= require calendars
  *= require opentok-hardware.css
  *= require comments
  *= require forms
- *= require calendars
- *= require appointments
- *= require bootstrap-datepicker
+ *= require blog-post
  */
 
- @import "bootstrap-sprockets";
- @import "bootstrap";
- @import "chosen";
 

@@ -1,14 +1,24 @@
-<h2>You can ask questions here</h2>
-<%= button_to "Ask a question", ask_new_question_path %>
 <br>
-
-<% @posts.each do |post| %>
-      
-      <%= label_tag :question, "Question:" %>
-       <%= post.question %><br>
-       <%= label_tag :body, "Body:" %>
-        <%= post.body %>
-    	<%= link_to "Read Question", post %> 
-       <br>
-        <hr>
-<% end %>
+<div align="center"><%= button_to("Ask a question", ask_new_question_path, class: "btn btn-primary blue") %></div>
+<br>
+<hr>
+<div class="container">
+	<div class="row">
+        <div class="col-lg-8">
+			<% @posts.each do |post| %>
+            <h1><%= link_to post do %><%= post.question %><%end%></h1>
+            <p class="lead"><i class="fa fa-user"></i> by <a href=""><%= post.user.firstname %></a>
+            </p>
+            <hr>
+            <p><i class="fa fa-calendar"></i> Posted on <%= post.created_at.strftime("%d %b, %Y")%></p>
+			
+		 	<hr>
+            <p class="lead"><%= truncate(post.body, length: 30) %></p>
+            
+            <%= link_to "Read More", post, class: "btn btn-success pull-right"%>
+            <br>
+            <hr>
+            <%end%>
+        </div>
+    </div>
+</div>

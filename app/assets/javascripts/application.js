@@ -14,19 +14,20 @@
 //= require jquery_ujs
 //= require chosen-jquery
 //= require turbolinks
-//= require conversations
-//= require bootstrap-sprockets
-//= require jquery1111.min
-//= require css3-mediaqueries
-//= require html5
+//= require SmoothScroll.min
+//= require bootstrap
+//= require easing
+//= require jquery-2.2.3.min
+//= require jquery.gauge
 //= require lightbox-plus-jquery.min
-//= require script
-//= require video
-//= require video2
-//= require helloworld
-//= require bootstrap-datepicker
+//= require move-top
+//= require responsiveslides.min
 
 //= require jquery.purr
 //= require best_in_place
 
+//= require appointments
+//= require bootstrap-datepicker
+//= require conversations
 //= require_tree .
+

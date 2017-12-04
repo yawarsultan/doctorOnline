@@ -11,10 +11,10 @@
                 </div>
                 <div class="col-xs-6 col-sm-6 col-md-6 text-right">
                     <p>
-                        <em>Date: <%= @history.created_at.strftime("%d %b, %Y") %></em>
+                        <strong>Date: <%= @history.created_at.strftime("%d %b, %Y") %></strong>
                     </p>
                     <p>
-                        <em>History #: <%=@history.id%></em>
+                        <strong>History #: <%=@history.id%></strong>
                     </p>
                 </div>
             </div>
@@ -43,9 +43,10 @@
                     </tbody>
                 </table>
                 <%= link_to '<button type="button" class="btn btn-info btn-lg btn-block">
-                    Download/Print   <span class="glyphicon glyphicon-chevron-right"></span>
+                    Download/Print   <span class="fa fa-chevron-right"></span>
                 </button>'.html_safe, history_path(@history, format: "pdf"), :target => '_blank'%>
               </td>
             </div>
         </div>
     </div>
+</div>    
