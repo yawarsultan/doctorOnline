@@ -1,17 +1,11 @@
 class MedicinesController < ApplicationController
+  before_action :authenticate_user!, only: [:new, :edit, :update, :destroy]
   before_action :set_medicine, only: [:show, :edit, :update, :destroy]
 
   # GET /medicines
   # GET /medicines.json
   def index
-    @medicines = Medicine.all
-    @search = Medicine.search(params[:q])
-    @medicines = @search.result
-
-
-    if @search.result.blank? 
-     redirect_to medicines_url, notice: 'just fuck off'
-    end 
+  
   end
 
   # GET /medicines/1
@@ -35,7 +29,7 @@ class MedicinesController < ApplicationController
 
     respond_to do |format|
       if @medicine.save
-        format.html { redirect_to @medicine, notice: 'Medicine was successfully created.' }
+        format.html { redirect_to medicines_url, notice: 'Medicine was successfully created.' }
         format.json { render :show, status: :created, location: @medicine }
       else
         format.html { render :new }
@@ -76,6 +70,6 @@ class MedicinesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def medicine_params
-      params.require(:medicine).permit(:name,:weight,:price)
+      params.require(:medicine).permit(:name,:weight,:price, :description)
     end
 end

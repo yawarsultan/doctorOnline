@@ -1,5 +1,20 @@
-<h1>New Medicine</h1>
+<div class="container">
+    <div class="row">
+	    <div class="col-md-4">
+	    	<div>
+	        
+		        <div class="form_main">
+		            <h4 class="heading"><strong>Add </strong> Medicine <span></span></h4>
+		            <div class="form">
+		              
+						<%= render 'form', medicine: @medicine %>
+		                    
+		            </div>
+		        </div>
+	        </div>
+	    </div>
+  	</div>
+</div>
 
-<%= render 'form', medicine: @medicine %>
 
-<%= link_to 'Back', medicines_path %>
+

@@ -6,7 +6,7 @@ class ApplicationController < ActionController::Base
   before_action :set_online_time, if: proc { user_signed_in? }
   helper_method :mailbox
   helper_method :mailbox, :conversation
-
+  before_action :search
   
   def check_not_user
     redirect_to_root_with_error if current_user.patient?
@@ -36,6 +36,17 @@ class ApplicationController < ActionController::Base
       current_user.update_attribute(:total_online_time, minutes)
   end  
 
+  end
+
+  def search
+
+    @search=Medicine.search(params[:q])
+    @medicines=@search.result
+
+    # if @medicines.blank?
+    #   flash[:error] = "No Medicine found"
+    # end
+   
   end
 
   private

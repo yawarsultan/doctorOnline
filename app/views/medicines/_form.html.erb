@@ -12,25 +12,11 @@
   <% end %>
     
 
-    <div class="field">
-    <%= f.label :name %>
-    <%= f.text_field :name %>
-  </div>
+    <%= f.text_field :name, class: "txt", placeholder: "Medicine Name" %>
 
-  <div class="field">
-    <%= f.label :weight %>
-    <%= f.text_area :weight %>
-  </div>
-  <div class="field">
-    <%= f.label :price %>
-    <%= f.text_area :price %>
-  </div>
+    <%= f.text_area :weight, class: "txtarea", placeholder: "Weight of Medicine" %>
+    
+    <%= f.text_area :description, class: "txtarea", placeholder: "Information about medicine" %>
 
-
-
-
-
-  <div class="actions">
-    <%= f.submit %>
-  </div>
+    <%= f.submit "Add Medicine", class: "btn btn-primary" %>
 <% end %>
