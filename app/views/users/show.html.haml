@@ -6,7 +6,7 @@
     %li
       %a Edit
     %li.active
-      = "#{@user.full_name}"
+      = "#{@user.firstname}"
   / Title
   = form_for @user , as: :user, url: update_user_user_path(@user) do |f|
     %h2.heading3.mt40

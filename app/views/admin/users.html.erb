@@ -27,7 +27,7 @@
         <td contenteditable="false"><%= user.phone%></td>
         <td contenteditable="false"><%= user.city%></td>
         <td contenteditable="false"><%= user.role%></td>
-        <td contenteditable="false"><%= link_to "Edit", edit_user_registration_path%></td>
+        <td contenteditable="false"><%= link_to "Edit", user_path(user.id)%></td>
         <td contenteditable="false"><%= link_to "Delete", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete%></td>
       </tr>
 

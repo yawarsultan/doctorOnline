@@ -1,14 +1,20 @@
 <% commentable.comments.each do |comment| %>
 	<div class="well">
-		<h3><i class="fa fa-comment"></i> <%= comment.author%> says:
+		<h3><i class="fa fa-comment"></i>
+		<% if comment.role == "doctor" %> 
+		 Doctor <%= comment.author%> says:
+		 <%else%>
+		 <%= comment.author%> says:
+		 <%end%>
     	<small> <%= time_ago_in_words(comment.created_at) %> ago</small>
     	</h3>
 	
 		<% if current_user.present? %>
-	    	<% if comment.author == current_user.firstname %>
+	    	<% if comment.author == current_user.firstname  %>
+	       		
 	       		<%= best_in_place comment, :body %>
 	    	<%else%>
-	       		<%= comment.body %>   
+	    		<%= comment.body %>
 	    	<%end%>   
 	  	<%else%>
 	   		<%= comment.body%>

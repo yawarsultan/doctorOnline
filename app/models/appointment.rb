@@ -1,6 +1,6 @@
 class Appointment < ApplicationRecord
 	belongs_to :user
-
+  before_create :set_expires_at
 
   def start_time
     self.appointment_time
@@ -10,28 +10,6 @@ class Appointment < ApplicationRecord
     appointment_time + duration.seconds
   end
   
-  # def client_name 
-  #   client.name
-  # end
-  
-  # def location_name 
-  #   location.nickname if location
-  # end
-  
-  ## Form Parsing methods
-  
-  # def client_attributes=(atts)
-  #   if atts[:name] != ""
-  #     self.client = self.user.clients.find_or_create_by(atts)   
-  #   end
-  # end
-  
-  # def location_attributes=(atts)
-  #   if atts[:nickname] != ""
-  #     location = self.user.locations.find_or_create_by(atts)  
-  #     self.location = location
-  #   end
-  # end
   
   def appointment_time=(time)
     if time.is_a?(Hash)
@@ -65,6 +43,10 @@ class Appointment < ApplicationRecord
     hash["hour"].to_i + hash["min"].to_i
   end
   
+  def set_expires_at
+    self.expires_at = appointment_time
+  end
+
   ## Validations 
   
   validates :duration, presence: true, numericality: { greater_than_or_equal_to: 0 }

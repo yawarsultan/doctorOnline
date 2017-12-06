@@ -2,6 +2,7 @@
     <h4><i class="fa fa-paper-plane-o"></i> Leave a Comment:</h4>
     <%= form_for [commentable, Comment.new] do |f| %>
 		<%= f.hidden_field :author, value: current_user.firstname if current_user.present? %>
+		<%= f.hidden_field :role, value: current_user.role if current_user.present? %>
 		<div class="form-group">
 			<%= f.text_area :body, :class => "form-control", rows: "3" , placeholder: "Add a comment" %>
 

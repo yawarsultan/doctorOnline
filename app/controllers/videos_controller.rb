@@ -20,6 +20,8 @@ class VideosController < ApplicationController
 
   def call
     @appointment = Appointment.find(params[:id])
+    @presription = Presription.new
+    @history = History.new
   end
   
   private

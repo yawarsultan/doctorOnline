@@ -7,6 +7,8 @@ Rails.application.routes.draw do
   resources :histories
   resources :presriptions
   resources :medicines
+
+
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 
     resources :comments
@@ -44,8 +46,12 @@ Rails.application.routes.draw do
   get '/call', to: 'videos#call'
   get '/call/:id', to: 'videos#call'
   devise_for :users ,controllers: {registrations: "registrations"}
+   
+
   match ':controller(/:action(/:id))',:via => [:get,:post,:delete] 
   
+  
+      
   # as :user do
   #     get "/admins/register", to: "registrations#new", as: "register"
   # end

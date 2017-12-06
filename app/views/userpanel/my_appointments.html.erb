@@ -15,11 +15,14 @@
         <% if current_user.patient? || current_user.super_admin? %>
         <th>Edit</th>
         <th>Delete</th>
+        <%end%>
+        <% if current_user.patient? || current_user.doctor? %>
         <th>Video Link</th>
         <%end%>
       </tr>
       
         <% @appointments.each do |appointment| %>
+        
         <tr>
         <td contenteditable="false"><%= appointment.user.firstname%></td>
         <td contenteditable="false"><%= appointment.user.email%></td>
@@ -34,11 +37,12 @@
 
         <td contenteditable="false"><%= link_to "Delete", appointment, method: :delete, data: { confirm: 'Are you sure?' }%></td>
         <%end%>
+        <% if current_user.patient? || current_user.doctor? %>
         <td contenteditable="false"><%= link_to "Start Call", call_path(id: appointment)%></td>
+        <%end%>
         </tr>
 
         <%end%>
-        
         
       <!-- This is our clonable table line -->
       

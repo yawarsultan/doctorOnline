@@ -41,6 +41,6 @@ respond_to :html, :json
 	private
 		
 		def comment_params
-			params.require(:comment).permit(:body, :author, :user_id)
+			params.require(:comment).permit(:body, :author, :user_id,:role)
 		end
 end
