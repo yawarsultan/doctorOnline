@@ -18,6 +18,9 @@ class VideosController < ApplicationController
     gon.opentok = opentok_data(@stream)
   end
 
+  def call
+    @appointment = Appointment.find(params[:id])
+  end
   
   private
 

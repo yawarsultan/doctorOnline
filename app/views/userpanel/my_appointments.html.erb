@@ -15,12 +15,13 @@
         <% if current_user.patient? || current_user.super_admin? %>
         <th>Edit</th>
         <th>Delete</th>
+        <th>Video Link</th>
         <%end%>
       </tr>
       
         <% @appointments.each do |appointment| %>
         <tr>
-        <td contenteditable="false"><%= appointment.patient_name%></td>
+        <td contenteditable="false"><%= appointment.user.firstname%></td>
         <td contenteditable="false"><%= appointment.user.email%></td>
         <td contenteditable="false"><%= appointment.doctor_name%></td>
         <td contenteditable="false"><%= full_time(appointment) %></td>
@@ -33,7 +34,8 @@
 
         <td contenteditable="false"><%= link_to "Delete", appointment, method: :delete, data: { confirm: 'Are you sure?' }%></td>
         <%end%>
-      </tr>
+        <td contenteditable="false"><%= link_to "Start Call", call_path(id: appointment)%></td>
+        </tr>
 
         <%end%>
         

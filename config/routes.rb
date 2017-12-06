@@ -41,7 +41,8 @@ Rails.application.routes.draw do
   get "mailbox/sent" => "mailbox#sent", as: :mailbox_sent
   get "mailbox/trash" => "mailbox#trash", as: :mailbox_trash
   post '/ask_new_question', to: 'posts#new'
-  
+  get '/call', to: 'videos#call'
+  get '/call/:id', to: 'videos#call'
   devise_for :users ,controllers: {registrations: "registrations"}
   match ':controller(/:action(/:id))',:via => [:get,:post,:delete] 
   

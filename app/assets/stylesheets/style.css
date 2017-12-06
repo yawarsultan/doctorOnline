@@ -7,6 +7,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 body{
 	margin:0;
 	font-family: 'Open Sans', sans-serif;
+
 }
 body a{
 	transition: 0.5s all;
@@ -608,7 +609,7 @@ h3.h3-w3l,h2.h3-w3l {
 }
 p {
     font-size: 1em;
-    color:#999;
+    color:black;
     line-height: 1.8em; 
 }
 .about-w3right {
@@ -673,7 +674,7 @@ p {
     padding: 2em;
     font-size: 14px;
     line-height: 2em;
-    color: #999;
+    color: black;
 	border-top-color: transparent;
 	-webkit-box-shadow: 0px 0px 1px #aaa;
 	-moz-box-shadow: 0px 0px 1px #aaa; 
@@ -1030,7 +1031,7 @@ p.data {
     color: #000;
 }
 .w3l-testi-txt p {
-    color: #999;
+    color: black;
     text-transform: uppercase;
     font-size: 0.9em;
 }
@@ -1041,7 +1042,7 @@ p.data {
     margin-top: 4em;
 }
 .w3l-testi-txt p {
-    color: #999;
+    color: black;
 }
 /*--// testimonials --*/
 /*-- gallery --*/  
@@ -1129,7 +1130,7 @@ ul.bs-glyphicons-list li:hover span {
     color: #fff;
 }
 .codes a {
-    color: #999;
+    color: black;
 }
 .row.fontawesome-icon-list {
     margin: 0;
@@ -1208,7 +1209,7 @@ h3.agileits-icons-title {
     color: #000;
 }
 .icons a {
-    color: #999;
+    color: black;
 }
 .icon-box i {
     margin-right: 10px !important;
@@ -1360,7 +1361,7 @@ li.list-group-item1 {
 	margin-bottom: 1em;
 }
 .grid_3 p{
-	color: #999;
+	color: black;
 	font-size: 0.85em;
 	margin-bottom: 1em;
 	font-weight: 300;
@@ -1427,7 +1428,7 @@ section#tables  p {
 }
 .table > thead > tr > th, .table > tbody > tr > th, .table > tfoot > tr > th, .table > thead > tr > td, .table > tbody > tr > td, .table > tfoot > tr > td {
 	font-size: 0.9em;
-	color: #999;
+	color: black;
 	border-top: none !important;
 }
 .tab-content > .active {
@@ -1638,7 +1639,7 @@ h2.typoh2{
 ul.contact_info li {
     list-style-type: none;
     margin-top:1.5em;
-    color: #999;
+    color: black;
     font-size:1em;
 }
 ul.contact_info li i {
@@ -1654,7 +1655,7 @@ ul.contact_info li i {
     font-size: .9em;
 }
 ul.contact_info li a {
-    color: #999;
+    color: black;
     text-decoration: none;
 }
 ul.contact_info li a:hover{

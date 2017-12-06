@@ -15,6 +15,10 @@ module AppointmentsPartialHelper
     end
   end
   
+  def show_room(appointment)
+    appointment.room
+  end
+
   def appointment_details(appointment)
     if current_page?(appointment_path(appointment))
       render partial: "appointments/appointment_details", locals: { appointment: appointment }

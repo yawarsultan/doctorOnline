@@ -1,6 +1,7 @@
 <%#= render partial: "layouts/errors", locals: { object: appointment } %>
 <%= form_for appointment do |f| %>
   <%#= client_fields(f, appointment, client) %>
+  <%= f.hidden_field :room, value: current_user.firstname %>
   <div class="field">
     <%= label_tag "Select Doctor" %>  
     <%= f.select :doctor_name, User.where(role: "doctor").pluck(:firstname), include_blank: true, required: true%>
@@ -9,7 +10,7 @@
     <p>
       <%= label_tag "Patient Name:" %>
       <%= f.hidden_field :patient_name, value: current_user.firstname %>
-      <%= current_user.firstname %>
+      <%#= current_user.firstname %>
     </p>
   </div>
   <div class="field">

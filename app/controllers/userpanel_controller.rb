@@ -28,11 +28,11 @@ class UserpanelController < ApplicationController
 
 	def my_appointments
 		if current_user.super_admin?
-			@appointments = Appointment.all
+			@appointments = Appointment.all.order(created_at: :desc)
 		elsif current_user.doctor?
-			@appointments = Appointment.where(doctor_name: current_user.firstname)
+			@appointments = Appointment.where(doctor_name: current_user.firstname).order(created_at: :desc)
 		else
-			@appointments = Appointment.where(user_id: current_user.id)
+			@appointments = Appointment.where(user_id: current_user.id).order(created_at: :desc)
 		end
 	end
 
