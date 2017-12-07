@@ -70,6 +70,7 @@ class PostsController < ApplicationController
     @user = current_user
     @posts = @user.posts.all
   end
+  
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_post

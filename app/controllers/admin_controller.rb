@@ -6,6 +6,10 @@ class AdminController < ApplicationController
 		@users = User.all.order(created_at: :desc)
 	end
 
+	def posts
+		@posts = Post.all
+	end
+
 	private
 
 	# def check_super_admin_or_user

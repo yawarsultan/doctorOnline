@@ -34,11 +34,12 @@ Rails.application.routes.draw do
   get '/index', to: "userpanel#index"
   get '/prescription', to: "userpanel#prescription"
   get '/account', to: "userpanel#account"
-  get '/my_posts', to: "posts#my_questions"
-  get '/patient_history', to: "userpanel#patient_history"
+  get '/my-posts', to: "posts#my_questions"
+  get '/all-posts', to: "admin#posts"
+  get '/patient-history', to: "userpanel#patient_history"
   get '/watch/:id', to: 'videos#watch', as: :watch
   get '/stream', to: 'videos#stream', as: :stream 
-  get '/my_appointments', to: 'userpanel#my_appointments'
+  get '/my-appointments', to: 'userpanel#my_appointments'
   get "mailbox/inbox" => "mailbox#inbox", as: :mailbox_inbox
   get "mailbox/sent" => "mailbox#sent", as: :mailbox_sent
   get "mailbox/trash" => "mailbox#trash", as: :mailbox_trash
@@ -53,7 +54,6 @@ Rails.application.routes.draw do
     member do
       post "update_user"
       patch "update_user"
-      get "password_new_sent"
     end
   end
   match ':controller(/:action(/:id))',:via => [:get,:post,:delete] 

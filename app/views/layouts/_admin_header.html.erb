@@ -58,7 +58,7 @@
                 <li><a href="/medicines/new">Add Medicine</a></li>
                 <li><a href="/medicines">All Medicines</a></li>
                 <li><a href='/prescription'>Prescription</a></li>
-                <li><a href='/my_posts'>Posts</a></li>
+                <li><a href='/all-posts'>Posts</a></li>
                 <li><%= link_to  destroy_user_session_path, :method => 'delete' do%> Signout<% end %></li>
               </ul>
             <% elsif current_user.doctor? %>
