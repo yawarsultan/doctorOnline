@@ -1,7 +1,7 @@
 <%#= render partial: "layouts/errors", locals: { object: appointment } %>
 <%= form_for appointment do |f| %>
   <%#= client_fields(f, appointment, client) %>
-  <%= f.hidden_field :room, value: current_user.firstname %>
+  <%= f.hidden_field :room, value: current_user.id %>
   <div class="field">
     <%= label_tag "Select Doctor" %>  
     <%= f.select :doctor_name, User.where(role: "doctor").pluck(:firstname), include_blank: true, required: true%>
