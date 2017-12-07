@@ -14,6 +14,7 @@
         <th>Phone</th>
         <th>City</th>
         <th>Role</th>
+        <th>Speciality</th>
         <th>Edit</th>
       </tr>
       
@@ -26,6 +27,7 @@
         <td contenteditable="false"><%= user.phone%></td>
         <td contenteditable="false"><%= user.city%></td>
         <td contenteditable="false"><%= user.role%></td>
+        <td contenteditable="false"><%= user.speciality %></td>
         <td contenteditable="false"><%= link_to "Edit", user_path(user.id)%></td>
       </tr>
 

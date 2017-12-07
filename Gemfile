@@ -26,6 +26,8 @@ gem 'chosen-rails' # for select tags
 # to edit comment in the same page
 gem 'paperclip'
 gem 'best_in_place', '~> 3.0.1'
+
+
 group :development do
   gem 'web-console'
   gem 'listen', '~> 3.0.5'

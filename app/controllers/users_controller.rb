@@ -74,6 +74,7 @@ class UsersController < ApplicationController
         :city,
         :gender,
         :phone,
+        :speciality,
         :role,
         # ,features_attributes: [:description]
         )

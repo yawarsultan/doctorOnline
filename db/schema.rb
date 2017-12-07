@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171206201944) do
+ActiveRecord::Schema.define(version: 20171207210622) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -25,6 +25,7 @@ ActiveRecord::Schema.define(version: 20171206201944) do
     t.string   "patient_name"
     t.string   "room"
     t.datetime "expires_at"
+    t.string   "special"
   end
 
   create_table "comments", force: :cascade do |t|
@@ -61,6 +62,12 @@ ActiveRecord::Schema.define(version: 20171206201944) do
     t.datetime "updated_at",                          null: false
     t.index ["email"], name: "index_doctors_on_email", unique: true, using: :btree
     t.index ["reset_password_token"], name: "index_doctors_on_reset_password_token", unique: true, using: :btree
+  end
+
+  create_table "drugs", force: :cascade do |t|
+    t.string   "drug_name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "histories", force: :cascade do |t|
@@ -252,6 +259,7 @@ ActiveRecord::Schema.define(version: 20171206201944) do
     t.string   "avatar_content_type"
     t.integer  "avatar_file_size"
     t.datetime "avatar_updated_at"
+    t.string   "speciality"
     t.index ["email"], name: "index_users_on_email", unique: true, using: :btree
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
   end

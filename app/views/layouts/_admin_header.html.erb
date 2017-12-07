@@ -52,9 +52,9 @@
             <% if current_user.super_admin? %>
               <li><a href="icons.html" data-toggle="dropdown"><%= image_tag(current_user.avatar.url(:thumb), class: "round-image-50") %><span class="caret"></span></a>
               <ul class="dropdown-menu">
-                <li><a href="/my_appointments">Appointments</a></li>
+                <li><a href="/my-appointments">Appointments</a></li>
                 <li><a href='/admin/users'>Users</a></li>
-                <li><a href="/patient_history">Patient History</a></li>
+                <li><a href="/patient-history">Patient History</a></li>
                 <li><a href="/medicines/new">Add Medicine</a></li>
                 <li><a href="/medicines">All Medicines</a></li>
                 <li><a href='/prescription'>Prescription</a></li>
@@ -66,9 +66,9 @@
               <li><a href="icons.html" data-toggle="dropdown"><%= image_tag(current_user.avatar.url(:thumb), class: "round-image-50") %><span class="caret"></span></a>
                 <ul class="dropdown-menu">
               <li><%= link_to "Inbox", mailbox_inbox_path %></li>
-              <li><a href="/my_appointments">My Appointments</a></li>
+              <li><a href="/my-appointments">My Appointments</a></li>
               <li><a href="/account">My Account</a></li>
-              <li><a href="/patient_history">Patient History</a></li>
+              <li><a href="/patient-history">Patient History</a></li>
               <li><a href='/prescription'>Prescription</a></li>
               <li><%= link_to  destroy_user_session_path, :method => 'delete' do%> Signout<% end %></li>
               </ul>

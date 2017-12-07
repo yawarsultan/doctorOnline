@@ -22,6 +22,7 @@ class PresriptionsController < ApplicationController
   # GET /presriptions/new
   def new
     @presription = Presription.new
+    @presription.drugs.build
   end
 
   # GET /presriptions/1/edit
@@ -79,7 +80,7 @@ class PresriptionsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def presription_params
-      params.require(:presription).permit(:disease, :drug_name, :quantity, :name, :age,:user_id, :user_email)
+      params.require(:presription).permit(:disease, :drug_name, :quantity, :name, :age,:user_id, :user_email, drugs_attributes: [:id, :drug_name])
     end
 
     def check_super_admin_or_user
