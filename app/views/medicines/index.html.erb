@@ -1,7 +1,8 @@
 <div class="container">
+  <br><br>
   <% if @medicines.blank? %>
     <div class="alert alert-danger">Sorry! No Medicine Found</div>
-  <%end%>
+  <%else%>
   <h1>Medicines</h1>
   <div id="table" class="table-editable">
     <table class="table">
@@ -45,5 +46,6 @@
     </table>
 
   </div>
+  <%end%>
 </div>
 
