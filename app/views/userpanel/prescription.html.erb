@@ -14,7 +14,7 @@
         <th>Drug Quantity</th>
         <th>Doctor</th>
         <th>Show</th>
-        <% if current_user.doctor? || current_user.super_admin? %>
+        <% if current_user.doctor? %>
         <th>Edit</th>
         <th>Delete</th>
         <%end%>

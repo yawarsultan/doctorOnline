@@ -22,7 +22,7 @@
           </div> -->  
           <div class="pull-right">
           <%= search_form_for @search do |f| %>
-              <%= f.text_field :name_cont, placeholder: "Search Medicine" %>
+              <%= f.text_field :name_cont, placeholder: "Search Medicine", class: "txt" %>
               <%= f.submit "Search", class: "btn btn-primary" %>
           <% end -%>
           </div>

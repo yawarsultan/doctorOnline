@@ -1,0 +1,62 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-4">
+        <div class="form_main">
+                <h4 class="heading"><strong>Edit </strong> <%= @user.firstname %>  <span></span></h4>
+                <div class="form">
+                <%= form_for @user, as: :user, url: update_user_user_path(@user) do |f| %>
+                    <%= devise_error_messages! %>
+                    <div>
+                      <%= f.label :avatar, "Select image"  %><br>
+                      <div >
+                        <%= f.file_field :avatar %>
+                      </div>
+                    </div>
+                    <div>
+                      <%= f.label :firstname %><br />
+                      <%= f.text_field :firstname, autofocus: true, class: "txt" %>
+                    </div>
+                    <div>
+                      <%= f.label :lastname %><br />
+                      <%= f.text_field :lastname, class: "txt"%>
+                    </div>
+                    <div>
+                      <%= f.label :Gender%><br>
+                      <%= f.label :Male ,"Male" %>
+                      <%= f.radio_button :gender, "male", autofocus: true %>
+                    
+                    
+                      <%= f.label :Female, "Female" %>
+                      <%= f.radio_button :gender, "female", autofocus: true %>
+                    </div>
+                    <div>
+                      <%= f.label :phone %><br />
+                      <%= f.text_field :phone, class: "txt"%>
+                    </div>
+                    <div>
+                      <%= f.label :city %><br />
+                      <%= f.text_field :city, class: "txt"%>
+                    </div>
+                    <% if is_super? %>
+                      <div class="field">
+                        <%= f.label :role %><br>
+                        <%= f.select(:role, User::ROLES.map{ |r| [r.humanize, r] }, {}, { :autofocus => true, include_blank: 'Select a Role' }) %>
+                      </div>
+                    <% end %>
+                    <div>
+                      <%= f.label :email %><br />
+                      <%= f.email_field :email, class: "txt4"%>
+                    </div>
+          
+                    <div>
+                      <%= f.submit "Update User", class: "btn btn-primary"%>
+                    </div>
+                  <% end %>
+
+                </div>
+            </div>
+        </div>
+    </div>
+  </div>
+</div>
+

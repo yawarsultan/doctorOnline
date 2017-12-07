@@ -2,6 +2,9 @@ class Ability
   include CanCan::Ability
 
   def initialize(user)
+    alias_action :create, :read, :update, :destroy, :to => :crud
+    alias_action :create, :read, :to => :read_create
+    
     user ||= User.new # guest user (not logged in)
 
     if true or user.super_admin?

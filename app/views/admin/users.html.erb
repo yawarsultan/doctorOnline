@@ -15,7 +15,6 @@
         <th>City</th>
         <th>Role</th>
         <th>Edit</th>
-        <th>Delete</th>
       </tr>
       
         <% @users.each do |user| %>
@@ -28,7 +27,6 @@
         <td contenteditable="false"><%= user.city%></td>
         <td contenteditable="false"><%= user.role%></td>
         <td contenteditable="false"><%= link_to "Edit", user_path(user.id)%></td>
-        <td contenteditable="false"><%= link_to "Delete", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete%></td>
       </tr>
 
         <%end%>

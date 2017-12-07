@@ -13,8 +13,10 @@
         <th>Reason</th>
         <th>Created by</th>
         <th>Show</th>
+        <% if current_user.doctor? %>
         <th>Edit</th>
         <th>Delete</th>
+        <%end%>
       </tr>
       
         <% @histories.each do |history| %>
@@ -31,8 +33,10 @@
 
         <%end%>
         <td contenteditable="false"><%= link_to "Show", history_path(history) %></td>
+        <% if current_user.doctor? %>
         <td contenteditable="false"><%= link_to "Edit", edit_history_path(history)%></td>
         <td contenteditable="false"><%= link_to "Delete", history, method: :delete, data: { confirm: 'Are you sure?' }%></td>
+        <%end%>
       </tr>
 
         <%end%>

@@ -1,8 +1,21 @@
 class UsersController < ApplicationController
-   before_filter :authenticate_user!
+  before_filter :authenticate_user!, except: [:password_new_sent]
   before_action :load_users, only: [:index]
   before_action :set_user
-   def destroy
+  # load_and_authorize_resource
+
+  def index
+    @users = @users.paginate(:page => params[:page],:per_page => 10)
+  end
+
+  def show
+    if current_user.id == @user.id 
+    elsif !current_user.super_admin?
+      redirect_to_root_with_error
+    end 
+  end
+  
+  def destroy
     if current_user.id == @user.id || current_user.super_admin?
       @user.destroy if @user.present?
       flash[:notice] = "User Deleted" if @user.present?
@@ -13,38 +26,39 @@ class UsersController < ApplicationController
   end
 
   def update
-    @user.assign_attributes(user_params)
-    if @user.save == false
-      flash[:success] = "#{@user.errors.full_messages}"
-      redirect_to user_path(@user)
-    else
-      @user.save!
+    @user.update_attributes(user_params)
+    if @user.update(user_params)
       flash[:notice] = "User updated"
       redirect_to users_path
+    else
+      flash[:success] = "#{@user.errors.full_messages}"
+      redirect_to user_path(@user)
     end
   end
 
   def update_user
+    
     if params[:user][:password].present? or params[:user][:password_confirmation].present?
-      @user.assign_attributes(user_password_params)
+      @user.update_attributes(user_password_params)
     end
-    if @user.save == false
-      flash[:success] = "#{@user.errors.full_messages}"
-      redirect_to user_path(@user)
-    else
-      @user.save!
+    if @user.update(user_params)
       flash[:notice] = "User updated"
+      redirect_to admin_users_path      
+    else
+      flash[:success] = "#{@user.errors.full_messages}"
       redirect_to user_path(@user)
     end
   end
   
-   def show
-    if current_user.id == @user.id 
-    elsif !current_user.super_admin?
-      redirect_to_root_with_error
-    end 
+  def password_new_sent
+    @user = User.find_by_id(params[:id])
+    if @user.present?
+      flash[:alert] = "Email '#{@user.email}' already exists. If you forgot the password. Please reset it. Link will expire in 1 Hour."
+    else
+      redirect_to root
+    end
   end
- 
+
   private
 
   def set_user
@@ -53,17 +67,25 @@ class UsersController < ApplicationController
 
   def user_params
     params.require(:user).permit(
-        :first_name, 
-        :last_name,
+        :firstname, 
+        :lastname,
         :email,
-        :country_id,
+        :country,
+        :city,
+        :gender,
+        :phone,
         :role,
-        :active_flag
         # ,features_attributes: [:description]
         )
   end
 
-  
+  def user_password_params
+    params.require(:user).permit(
+        :password_confirmation,
+        :password
+        # ,features_attributes: [:description]
+        )
+  end
 
   def load_users
     if current_user.super_admin?
@@ -72,4 +94,5 @@ class UsersController < ApplicationController
       @users = User.where(id: current_user.id)
     end
   end
+
 end

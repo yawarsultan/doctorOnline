@@ -45,9 +45,17 @@ Rails.application.routes.draw do
   post '/ask_new_question', to: 'posts#new'
   get '/call', to: 'videos#call'
   get '/call/:id', to: 'videos#call'
-  devise_for :users ,controllers: {registrations: "registrations"}
-   
+  get '/admin/users', to: 'admin#users'
+  # devise_for :users ,controllers: {registrations: "registrations"}
+  devise_for :users, :controllers => { registrations: 'registrations'}
 
+  resources :users do
+    member do
+      post "update_user"
+      patch "update_user"
+      get "password_new_sent"
+    end
+  end
   match ':controller(/:action(/:id))',:via => [:get,:post,:delete] 
   
   

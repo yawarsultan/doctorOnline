@@ -1,7 +1,7 @@
 class MedicinesController < ApplicationController
   before_action :authenticate_user!, only: [:new, :edit, :update, :destroy]
   before_action :set_medicine, only: [:show, :edit, :update, :destroy]
-
+  before_action :check_super_user, only: [:new, :edit, :update, :destroy]
   # GET /medicines
   # GET /medicines.json
   def index

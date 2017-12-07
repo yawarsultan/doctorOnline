@@ -1,5 +1,5 @@
 class AdminController < ApplicationController
-	before_action :check_super_user, only: [:users]
+  before_action :check_super_user, only: [:users]
   before_action :check_not_user, only: [:users]
   # before_action :check_super_admin_or_user
 	def users
