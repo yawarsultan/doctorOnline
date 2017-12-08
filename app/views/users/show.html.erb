@@ -42,10 +42,6 @@
                         <%= f.label :role %><br>
                         <%= f.select(:role, User::ROLES.map{ |r| [r.humanize, r] }, {}, { :autofocus => true, include_blank: 'Select a Role' }) %>
                       </div>
-                      <div>
-                        <%= f.label :speciality %>
-                        <%= f.text_field :speciality, class: "txt" %>
-                      </div>
                     <% end %>
                     <div>
                       <%= f.label :email %><br />
