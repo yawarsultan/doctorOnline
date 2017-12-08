@@ -5,7 +5,7 @@
 
   <div class="field">
     <%= label_tag "Select Doctor" %>  
-    <%= f.select :doctor_name, User.where(role: "doctor").pluck(:firstname, :speciality), include_blank: true, required: true%>
+    <%= f.select :doctor_name, User.where(role: "doctor").pluck(:firstname), include_blank: true, required: true%>
   </div>
     <div class="field">
     <p>
