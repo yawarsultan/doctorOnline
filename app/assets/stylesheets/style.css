@@ -173,7 +173,7 @@ a.w3_agile_vimeo:hover{
 /*-- top-nav --*/ 
 .navbar-default .navbar-collapse, .navbar-default .navbar-form {
     border: none;
-    background: #49c7ed;
+    background: #49c7ed; /* header color*/
 }
 .header-nav {
     background: rgba(124, 101, 60, 0.58);
